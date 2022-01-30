@@ -8,10 +8,10 @@ export const usePlaces = () => {
       store.dispatch("getInitialLocation");
     }
   });
+  console.log($store.state.places.userLocation);
   return {
     //defino que datos quiero que tengan acceso mis componentes
     isLoading: computed(() => store.state.places.isLoading),
     userLocation: computed(() => store.state.places.userLocation),
-    userLocationReady: computed(() => store.getters.userLocationReady),
   };
 };

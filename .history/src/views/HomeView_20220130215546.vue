@@ -1,4 +1,5 @@
 <template>
+  <h1>Mapa</h1>
   <px-map />
 </template>
 

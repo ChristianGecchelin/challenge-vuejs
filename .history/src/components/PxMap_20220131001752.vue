@@ -35,7 +35,6 @@ export default {
       if (userLocationReady.value) {
         return initMap();
       }
-      console.log(newVal);
     });
     return { isLoading, userLocation, userLocationReady };
   },

@@ -6,7 +6,7 @@
       <span>Localizando</span>
     </div>
   </div>
-  <div v-show="userLocationReady" class="map-container" id="map"></div>
+  <div v-show="!!userLocationReady" class="map-container" id="map"></div>
 </template>
 <script>
 import { onMounted, watch } from "vue";
@@ -26,16 +26,14 @@ export default {
         center: userLocation.value, // starting position [lng, lat]
         zoom: 15, // starting zoom
       });
-      return map;
     };
     onMounted(() => {
-      if (userLocationReady.value) return initMap();
+      if (userLocationReady.value) {
+        return initMap;
+      }
     });
     watch(userLocationReady, (newVal) => {
-      if (userLocationReady.value) {
-        return initMap();
-      }
-      console.log(newVal);
+      if (userLocationReady.value) initMap();
     });
     return { isLoading, userLocation, userLocationReady };
   },
@@ -53,9 +51,5 @@ export default {
 .title-container {
   display: flex;
   flex-direction: column;
-}
-.map-container {
-  width: 100%;
-  height: 500px;
 }
 </style>
