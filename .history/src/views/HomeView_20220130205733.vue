@@ -1,12 +1,11 @@
-<template>
-  <h1>Mapa</h1>
-</template>
+<template><px-map</template>
 
 <script>
 import { usePlaces } from "@/composables";
+import PxMap from "@/components/PxMap.vue";
 export default {
   name: "HomeView",
-  components: {},
+  components: { PxMap },
   setup() {
     usePlaces();
   },

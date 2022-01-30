@@ -1,9 +1,17 @@
 <template>
-  <nav>
-    <router-link class="router-link-exact-active" to="/">Home</router-link>
-  </nav>
-  <router-view />
+  <main>
+    <nav>
+      <router-link to="/">Home</router-link>
+    </nav>
+    <router-view />
+  </main>
 </template>
+<script>
+export default {
+  name: "App",
+  components: {},
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

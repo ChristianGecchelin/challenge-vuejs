@@ -1,14 +1,12 @@
 <template>
-  <h1>Mapa</h1>
+  <div class="about">
+    <h1>This is an about page</h1>
+  </div>
 </template>
-
 <script>
-import { usePlaces } from "@/composables";
 export default {
   name: "HomeView",
   components: {},
-  setup() {
-    usePlaces();
-  },
 };
 </script>
+<style scoped></style>

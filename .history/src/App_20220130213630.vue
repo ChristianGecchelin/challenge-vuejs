@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link class="router-link-exact-active" to="/">Home</router-link>
+    <router-link to="home">Home</router-link>
   </nav>
   <router-view />
 </template>

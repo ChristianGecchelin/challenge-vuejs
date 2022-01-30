@@ -4,13 +4,13 @@ export default createStore({
   state: {
     places: {
       isLoading: true,
-      userLocation: undefined,
+      userLocation: [],
     },
   },
   getters: {
     // creo una función que nos dirá en que estado está userLocation
-    userLocationReady(state) {
-      return !!state.places.userLocation;
+    userLocationReady({ places }) {
+      return !!places.userLocation;
     },
   },
   mutations: {

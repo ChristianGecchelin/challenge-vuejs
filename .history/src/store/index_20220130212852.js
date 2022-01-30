@@ -10,7 +10,7 @@ export default createStore({
   getters: {
     // creo una función que nos dirá en que estado está userLocation
     userLocationReady(state) {
-      return !!state.places.userLocation;
+      return !state.places.userLocation;
     },
   },
   mutations: {

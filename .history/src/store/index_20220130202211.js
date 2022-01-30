@@ -4,19 +4,22 @@ export default createStore({
   state: {
     places: {
       isLoading: true,
-      userLocation: undefined,
+      userLocation: [],
     },
   },
   getters: {
     // creo una función que nos dirá en que estado está userLocation
     userLocationReady(state) {
-      return !!state.places.userLocation;
+      return !!state.userLocation;
     },
   },
   mutations: {
-    setLngLat(state, coords) {
-      console.log(coords);
-      state.places.userLocation = [coords.longitude, coords.latitude];
+    setLngLat(state, position) {
+      console.log(position);
+      state.places.userLocation = [
+        position.coords.longitude,
+        position.coords.latitude,
+      ];
       state.places.isLoading = false;
     },
   },

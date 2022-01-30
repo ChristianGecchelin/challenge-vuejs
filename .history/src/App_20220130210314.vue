@@ -1,9 +1,10 @@
 <template>
-  <nav>
-    <router-link class="router-link-exact-active" to="/">Home</router-link>
-  </nav>
+  <!-- <nav>
+    <router-link to="/">Home</router-link>
+  </nav> -->
   <router-view />
 </template>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

@@ -1,5 +1,5 @@
 <template>
-  <h1>Mapa</h1>
+  <div class="home"></div>
 </template>
 
 <script>
@@ -8,7 +8,7 @@ export default {
   name: "HomeView",
   components: {},
   setup() {
-    usePlaces();
+    const {} = usePlaces();
   },
 };
 </script>

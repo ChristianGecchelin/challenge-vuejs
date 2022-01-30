@@ -4,7 +4,7 @@ export default createStore({
   state: {
     places: {
       isLoading: true,
-      userLocation: undefined,
+      userLocation: [],
     },
   },
   getters: {
