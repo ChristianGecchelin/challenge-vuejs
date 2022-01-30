@@ -1,0 +1,21 @@
+<template>
+  <div class="loading">
+    <div class="title-container">
+      <h3>Espere Por Favor...</h3>
+      <span>Localizando</span>
+    </div>
+  </div>
+</template>
+<script>
+import { usePlaces } from "@/composables";
+export default {
+  name: "PxMap",
+  components: {},
+  setup() {
+    const { isLoading, userLocation } = usePlaces();
+
+    return { isLoading, userLocation };
+  },
+};
+</script>
+<style scoped></style>

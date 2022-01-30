@@ -6,10 +6,9 @@
       <span>Localizando</span>
     </div>
   </div>
-  <div v-show="userLocationReady" class="map-container" id="map"></div>
+  <div v-show="!!userLocationReady" class="map-container" id="map">hola</div>
 </template>
 <script>
-import { onMounted, watch } from "vue";
 import { usePlaces } from "@/composables";
 import mapboxgl from "mapbox-gl";
 
@@ -17,28 +16,23 @@ export default {
   name: "PxMap",
   components: {},
   setup() {
-    const { isLoading, userLocation, userLocationReady } = usePlaces();
-    const initMap = async () => {
-      await Promise.resolve();
+    const initMap = () => {
       const map = new mapboxgl.Map({
         container: "map", // container ID
         style: "mapbox://styles/mapbox/streets-v11", // style URL
         center: userLocation.value, // starting position [lng, lat]
         zoom: 15, // starting zoom
       });
-      return map;
     };
-    onMounted(() => {
-      if (userLocationReady.value) return initMap();
-    });
-    watch(userLocationReady, (newVal) => {
-      if (userLocationReady.value) {
-        return initMap();
-      }
-      console.log(newVal);
-    });
+    const { isLoading, userLocation, userLocationReady } = usePlaces();
+
     return { isLoading, userLocation, userLocationReady };
   },
+  mounted(()=>{
+    if (!!isUserLocationReady) {
+      return initMap()
+    }
+  })
 };
 </script>
 <style scoped>
@@ -53,9 +47,5 @@ export default {
 .title-container {
   display: flex;
   flex-direction: column;
-}
-.map-container {
-  width: 100%;
-  height: 500px;
 }
 </style>

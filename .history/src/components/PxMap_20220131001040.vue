@@ -9,7 +9,7 @@
   <div v-show="userLocationReady" class="map-container" id="map"></div>
 </template>
 <script>
-import { onMounted, watch } from "vue";
+import { onMounted } from "vue";
 import { usePlaces } from "@/composables";
 import mapboxgl from "mapbox-gl";
 
@@ -30,12 +30,6 @@ export default {
     };
     onMounted(() => {
       if (userLocationReady.value) return initMap();
-    });
-    watch(userLocationReady, (newVal) => {
-      if (userLocationReady.value) {
-        return initMap();
-      }
-      console.log(newVal);
     });
     return { isLoading, userLocation, userLocationReady };
   },

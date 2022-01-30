@@ -6,10 +6,10 @@
       <span>Localizando</span>
     </div>
   </div>
-  <div v-show="userLocationReady" class="map-container" id="map"></div>
+  <div v-show="!!userLocationReady" class="map-container" id="map"></div>
 </template>
 <script>
-import { onMounted, watch } from "vue";
+import { onMounted } from "vue";
 import { usePlaces } from "@/composables";
 import mapboxgl from "mapbox-gl";
 
@@ -19,23 +19,19 @@ export default {
   setup() {
     const { isLoading, userLocation, userLocationReady } = usePlaces();
     const initMap = async () => {
+      if (!userLocation.value) {
+        return;
+      }
       await Promise.resolve();
       const map = new mapboxgl.Map({
-        container: "map", // container ID
+        container: map, // container ID
         style: "mapbox://styles/mapbox/streets-v11", // style URL
         center: userLocation.value, // starting position [lng, lat]
         zoom: 15, // starting zoom
       });
-      return map;
     };
     onMounted(() => {
       if (userLocationReady.value) return initMap();
-    });
-    watch(userLocationReady, (newVal) => {
-      if (userLocationReady.value) {
-        return initMap();
-      }
-      console.log(newVal);
     });
     return { isLoading, userLocation, userLocationReady };
   },
@@ -53,9 +49,5 @@ export default {
 .title-container {
   display: flex;
   flex-direction: column;
-}
-.map-container {
-  width: 100%;
-  height: 500px;
 }
 </style>
