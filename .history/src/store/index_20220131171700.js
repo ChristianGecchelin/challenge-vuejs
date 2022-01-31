@@ -44,7 +44,7 @@ const store = createStore({
     },
     setPlacesMarker(state, places) {
       //borro marcadores guardados
-      state.map.markers.forEach((marker) => marker.remove());
+      state.maps.markers.forEach((marker) => marker.remove());
       //creo nuevos marcadores
       for (const p of places) {
         const [lng, lat] = p.center;

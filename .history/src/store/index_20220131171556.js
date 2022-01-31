@@ -44,13 +44,13 @@ const store = createStore({
     },
     setPlacesMarker(state, places) {
       //borro marcadores guardados
-      state.map.markers.forEach((marker) => marker.remove());
+      state.maps.markers.forEach((marker) => marker.remove());
       //creo nuevos marcadores
       for (const p of places) {
         const [lng, lat] = p.center;
         const popUp = new mapboxgl.Popup().setLngLat([lng, lat])
           .setHTML(`<h3>${p.text}</h3>
-                    <p>${p.place_name}</p>`);
+      <p>${p.place_name}</p>`);
         const marker = new mapboxgl.Marker()
           .setLngLat([lng, lat])
           .setPopup(popUp)

@@ -1,8 +1,8 @@
 <template>
+  <px-button-views />
   <px-map />
   <px-search-bar />
   <px-restore-location />
-  <px-button-views />
 </template>
 
 <script>

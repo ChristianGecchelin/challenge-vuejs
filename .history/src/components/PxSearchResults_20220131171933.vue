@@ -22,7 +22,6 @@ export default {
     const { places } = usePlaces();
     const selectedPlace = ref(" ");
     watch(places, (newPlaces) => {
-      selectedPlace.value = "";
       setPlacesMarker(newPlaces);
     });
     return {

@@ -37,11 +37,9 @@ export default {
         .setLngLat(userLocation.value)
         .setPopup(myLocationPopUp)
         .addTo(map);
-
       setMap(map);
-      return { map, myLocationMarker };
+      return map, myLocationMarker;
     };
-
     onMounted(() => {
       if (userLocationReady.value) return initMap();
     });

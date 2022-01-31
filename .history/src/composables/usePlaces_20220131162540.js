@@ -12,8 +12,8 @@ export const usePlaces = () => {
     //defino que datos quiero que tengan acceso mis componentes
     isLoading: computed(() => store.state.places.isLoading),
     userLocation: computed(() => store.state.places.userLocation),
-    places: computed(() => store.state.places.places),
-    isLoadingPlaces: computed(() => store.state.places.isLoadingPlaces),
+    places:computed(()=>store.state.places.places),
+    isLoadingPlaces:computed(()=> store.state.places.isLoadingPlaces)
     userLocationReady: computed(() => store.getters.userLocationReady),
     searchPlaces: (query) => store.dispatch("searchPlaces", query),
   };
