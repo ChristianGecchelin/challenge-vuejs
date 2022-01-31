@@ -18,9 +18,6 @@ const store = createStore({
     userLocationReady(state) {
       return !!state.places.userLocation;
     },
-    mapReady(state) {
-      return !!state.map.mapInstance;
-    },
   },
   mutations: {
     setLngLat(state, coords) {

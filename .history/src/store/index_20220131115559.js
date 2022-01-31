@@ -9,8 +9,6 @@ const store = createStore({
     map: {
       mapInstance: undefined,
       markers: [],
-      mapDistance: undefined,
-      duration: undefined,
     },
   },
   getters: {
@@ -18,18 +16,12 @@ const store = createStore({
     userLocationReady(state) {
       return !!state.places.userLocation;
     },
-    mapReady(state) {
-      return !!state.map.mapInstance;
-    },
   },
   mutations: {
     setLngLat(state, coords) {
       console.log(coords);
       state.places.userLocation = [coords.longitude, coords.latitude];
       state.places.isLoading = false;
-    },
-    setMap(state, map) {
-      state.map.mapInstance = map;
     },
   },
   actions: {

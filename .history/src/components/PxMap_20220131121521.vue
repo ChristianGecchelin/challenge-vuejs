@@ -19,7 +19,6 @@ export default {
   components: {},
   setup() {
     const { isLoading, userLocation, userLocationReady } = usePlaces();
-    const { setMap } = useMaps();
     const initMap = async () => {
       await Promise.resolve();
       const map = new mapboxgl.Map({
@@ -35,7 +34,6 @@ export default {
         .setLngLat(userLocation.value)
         .setPopup(myLocationPopUp)
         .addTo(map);
-      setMap(map);
       return map, myLocationMarker;
     };
     onMounted(() => {

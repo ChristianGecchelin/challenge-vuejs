@@ -6,20 +6,14 @@ const store = createStore({
       isLoading: true,
       userLocation: undefined,
     },
-    map: {
-      mapInstance: undefined,
-      markers: [],
-      mapDistance: undefined,
-      duration: undefined,
-    },
+    map:{
+      map:undefined;
+    }
   },
   getters: {
     // creo una función que nos dirá en que estado está userLocation
     userLocationReady(state) {
       return !!state.places.userLocation;
-    },
-    mapReady(state) {
-      return !!state.map.mapInstance;
     },
   },
   mutations: {
@@ -27,9 +21,6 @@ const store = createStore({
       console.log(coords);
       state.places.userLocation = [coords.longitude, coords.latitude];
       state.places.isLoading = false;
-    },
-    setMap(state, map) {
-      state.map.mapInstance = map;
     },
   },
   actions: {
