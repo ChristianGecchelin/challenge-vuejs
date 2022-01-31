@@ -1,7 +1,7 @@
 <template>
   <!-- si userLocation todavia no cargo entonces renderizo el primer div, sino cargo el mapa -->
-  <div v-show="userLocationReady" class="title-container"><h1>Mapa</h1></div>
   <div v-show="!userLocationReady" class="loading-map">
+    <div class="title-container"><h1>Mapa</h1></div>
     <div class="container-loading">
       <h3>Espere Por Favor...</h3>
       <span>Localizando</span>
@@ -27,14 +27,7 @@ export default {
         center: userLocation.value, // starting position [lng, lat]
         zoom: 15, // starting zoom
       });
-      const myLocationPopUp = new mapboxgl.Popup().setLngLat(userLocation.value)
-        .setHTML(`<h3>Nombre</h3>
-      <p>Dirección</p>`);
-      const myLocationMarker = new mapboxgl.Marker()
-        .setLngLat(userLocation.value)
-        .setPopup(myLocationPopUp)
-        .addTo(map);
-      return map, myLocationMarker;
+      return map;
     };
     onMounted(() => {
       if (userLocationReady.value) return initMap();
@@ -50,19 +43,6 @@ export default {
 };
 </script>
 <style scoped>
-.title-container {
-  position: relative;
-  width: 320px;
-  margin: 20px auto;
-  padding: 10px 0px;
-  z-index: 2;
-  background-color: black;
-  text-align: center;
-  border-radius: 10px;
-}
-.title-container h1 {
-  color: wheat;
-}
 .loading-map {
   position: relative;
   width: 100%;
@@ -77,11 +57,7 @@ export default {
   flex-direction: column;
 }
 .map-container {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
 }
 </style>

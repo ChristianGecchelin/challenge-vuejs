@@ -32,7 +32,6 @@ export default {
       <p>Dirección</p>`);
       const myLocationMarker = new mapboxgl.Marker()
         .setLngLat(userLocation.value)
-        .setPopup(myLocationPopUp)
         .addTo(map);
       return map, myLocationMarker;
     };
