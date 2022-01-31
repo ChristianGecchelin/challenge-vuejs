@@ -35,8 +35,8 @@ const store = createStore({
       state.places.isLoadingPlaces = true;
     },
     setPlaces(state, places) {
-      state.places.places = places;
-      state.places.isLoadingPlaces = false;
+      state.places = places;
+      state.isLoadingPlaces = false;
     },
     setMap(state, map) {
       state.map.mapInstance = map;
@@ -53,18 +53,15 @@ const store = createStore({
         }
       );
     },
-    async searchPlaces({ state, commit }, query) {
+    async searchPlaces({ state }, query) {
       if (query.length === 0) {
-        commit("setPlaces", []);
         return [];
       }
-      commit("setIsLoadingPlaces");
       const responseApi = await searchApi(`/${query}.json`, {
         params: {
           proximity: state.places.userLocation.join(","),
         },
       });
-      commit("setPlaces", responseApi.data.features);
       return responseApi.data.features;
     },
   },

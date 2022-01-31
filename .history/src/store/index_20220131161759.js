@@ -35,8 +35,8 @@ const store = createStore({
       state.places.isLoadingPlaces = true;
     },
     setPlaces(state, places) {
-      state.places.places = places;
-      state.places.isLoadingPlaces = false;
+      state.places = places;
+      state.isLoadingPlaces = false;
     },
     setMap(state, map) {
       state.map.mapInstance = map;

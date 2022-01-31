@@ -13,6 +13,6 @@ export const usePlaces = () => {
     isLoading: computed(() => store.state.places.isLoading),
     userLocation: computed(() => store.state.places.userLocation),
     userLocationReady: computed(() => store.getters.userLocationReady),
-    searchPlaces: (query) => store.dispatch("searchPlaces", query),
+    searchPlaces: (term) => store.dispatch("searchPlaces", term),
   };
 };

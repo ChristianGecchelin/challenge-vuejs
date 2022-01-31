@@ -6,7 +6,6 @@ const store = createStore({
     places: {
       isLoading: true,
       userLocation: undefined,
-      isLoadingPlaces: false,
       places: [],
     },
     map: {
@@ -31,13 +30,6 @@ const store = createStore({
       state.places.userLocation = [coords.longitude, coords.latitude];
       state.places.isLoading = false;
     },
-    setIsLoadingPlaces(state) {
-      state.places.isLoadingPlaces = true;
-    },
-    setPlaces(state, places) {
-      state.places.places = places;
-      state.places.isLoadingPlaces = false;
-    },
     setMap(state, map) {
       state.map.mapInstance = map;
     },
@@ -53,18 +45,15 @@ const store = createStore({
         }
       );
     },
-    async searchPlaces({ state, commit }, query) {
+    async searchPlaces({ state }, query) {
       if (query.length === 0) {
-        commit("setPlaces", []);
         return [];
       }
-      commit("setIsLoadingPlaces");
       const responseApi = await searchApi(`/${query}.json`, {
         params: {
           proximity: state.places.userLocation.join(","),
         },
       });
-      commit("setPlaces", responseApi.data.features);
       return responseApi.data.features;
     },
   },

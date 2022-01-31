@@ -1,7 +1,6 @@
 <template>
   <px-map />
-  <px-search-bar />
-  <px-restore-location />
+  <px-search-bar <px-restore-location />
 </template>
 
 <script>
