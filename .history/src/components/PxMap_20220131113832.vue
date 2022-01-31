@@ -27,14 +27,10 @@ export default {
         center: userLocation.value, // starting position [lng, lat]
         zoom: 15, // starting zoom
       });
-      const myLocationPopUp = new mapboxgl.Popup().setLngLat(userLocation.value)
-        .setHTML(`<h3>Nombre</h3>
-      <p>Dirección</p>`);
       const myLocationMarker = new mapboxgl.Marker()
         .setLngLat(userLocation.value)
-        .setPopup(myLocationPopUp)
         .addTo(map);
-      return map, myLocationMarker;
+      return map;
     };
     onMounted(() => {
       if (userLocationReady.value) return initMap();
