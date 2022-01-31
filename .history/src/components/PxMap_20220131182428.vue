@@ -37,9 +37,46 @@ export default {
         .setLngLat(userLocation.value)
         .setPopup(myLocationPopUp)
         .addTo(map);
+      const geojson = {
+        type: "FeatureCollection",
+        features: [
+          {
+            type: "Feature",
+            geometry: {
+              type: "Point",
+              coordinates: [-77.032, 38.913],
+            },
+            properties: {
+              title: "Washington",
+              description: "Washington, D.C., EEUU",
+            },
+          },
+          {
+            type: "Feature",
+            geometry: {
+              type: "Point",
+              coordinates: [-122.414, 37.776],
+            },
+            properties: {
+              title: "San Francisco",
+              description: "San Francisco, California, EEUU",
+            },
+          },
+        ],
+      };
+      for (const f of geojson.features) {
+        const [lng, lat] = f.geometry.coordinates;
+        const popUp = new mapboxgl.Popup().setLngLat([lng, lat])
+          .setHTML(`<h3>${f.properties.title}</h3>
+                <p>${f.properties.description}</p>`);
+        const marker = new mapboxgl.Marker()
+          .setLngLat([lng, lat])
+          .setPopup(popUp)
+          .addTo(map);
+        setMap(map);
+      }
 
-      setMap(map);
-      return { map, myLocationMarker };
+      return map, myLocationMarker;
     };
 
     onMounted(() => {
@@ -51,7 +88,7 @@ export default {
       }
       console.log(newVal);
     });
-    return { isLoading, userLocation, userLocationReady };
+    return { isLoading, userLocation, userLocationReady, geojson };
   },
 };
 </script>

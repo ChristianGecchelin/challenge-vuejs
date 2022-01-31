@@ -13,18 +13,14 @@
 </template>
 
 <script>
-import { ref, watch } from "vue";
+import { ref } from "vue";
 import { useMaps, usePlaces } from "@/composables";
 export default {
   name: "PxSearchResults",
   setup() {
-    const { map, setPlacesMarker } = useMaps();
+    const { map } = useMaps();
     const { places } = usePlaces();
     const selectedPlace = ref(" ");
-    watch(places, (newPlaces) => {
-      selectedPlace.value = "";
-      setPlacesMarker(newPlaces);
-    });
     return {
       places,
       selectedPlace,

@@ -37,11 +37,9 @@ export default {
         .setLngLat(userLocation.value)
         .setPopup(myLocationPopUp)
         .addTo(map);
-
       setMap(map);
-      return { map, myLocationMarker };
+      return map, myLocationMarker;
     };
-
     onMounted(() => {
       if (userLocationReady.value) return initMap();
     });
@@ -62,13 +60,12 @@ export default {
   margin: 20px auto;
   padding: 10px 0px;
   z-index: 2;
-  border: 2px solid #fff;
   background-color: #f8bbd0;
   text-align: center;
   border-radius: 10px;
 }
 .title-container h1 {
-  color: #fff;
+  color: wheat;
 }
 .loading-map {
   position: relative;

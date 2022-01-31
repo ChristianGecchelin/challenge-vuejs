@@ -18,12 +18,11 @@ import { useMaps, usePlaces } from "@/composables";
 export default {
   name: "PxSearchResults",
   setup() {
-    const { map, setPlacesMarker } = useMaps();
+    const { map } = useMaps();
     const { places } = usePlaces();
     const selectedPlace = ref(" ");
     watch(places, (newPlaces) => {
-      selectedPlace.value = "";
-      setPlacesMarker(newPlaces);
+      console.log(newPlaces);
     });
     return {
       places,

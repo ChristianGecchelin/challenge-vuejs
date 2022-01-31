@@ -8,6 +8,7 @@
   padding: 0;
 }
 html {
+  height: 100vh;
   font-size: 62.5%;
   font-family: "DM Sans", sans-serif;
   scroll-behavior: smooth;
@@ -15,6 +16,6 @@ html {
 body {
   background: #1d062b;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 </style>

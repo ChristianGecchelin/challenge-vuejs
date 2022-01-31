@@ -30,6 +30,7 @@ export default {
         center: userLocation.value, // starting position [lng, lat]
         zoom: 15, // starting zoom
       });
+      console.log(map);
       const myLocationPopUp = new mapboxgl.Popup().setLngLat(userLocation.value)
         .setHTML(`<h3>Nombre</h3>
       <p>Dirección</p>`);
@@ -37,11 +38,36 @@ export default {
         .setLngLat(userLocation.value)
         .setPopup(myLocationPopUp)
         .addTo(map);
-
       setMap(map);
-      return { map, myLocationMarker };
+      return map, myLocationMarker;
     };
-
+    const geojson = {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [-77.032, 38.913],
+          },
+          properties: {
+            title: "Mapbox",
+            description: "Washington, D.C.",
+          },
+        },
+        {
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [-122.414, 37.776],
+          },
+          properties: {
+            title: "Mapbox",
+            description: "San Francisco, California",
+          },
+        },
+      ],
+    };
     onMounted(() => {
       if (userLocationReady.value) return initMap();
     });

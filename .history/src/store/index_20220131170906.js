@@ -1,6 +1,5 @@
 import { createStore } from "vuex";
 import { searchApi } from "@/apis";
-import mapboxgl from "mapbox-gl";
 
 const store = createStore({
   state: {
@@ -44,18 +43,17 @@ const store = createStore({
     },
     setPlacesMarker(state, places) {
       //borro marcadores guardados
-      state.map.markers.forEach((marker) => marker.remove());
+      state.maps.markers.forEach((marker) => marker.remove());
       //creo nuevos marcadores
       for (const p of places) {
         const [lng, lat] = p.center;
         const popUp = new mapboxgl.Popup().setLngLat([lng, lat])
-          .setHTML(`<h3>${p.text}</h3>
-                    <p>${p.place_name}</p>`);
-        const marker = new mapboxgl.Marker()
-          .setLngLat([lng, lat])
-          .setPopup(popUp)
-          .addTo(state.map.mapInstance);
-        state.map.markers.push(marker);
+          .setHTML(`<h3>${p.name}</h3>
+      <p>${p.center}</p>`);
+        const myLocationMarker = new mapboxgl.Marker()
+          .setLngLat(userLocation.value)
+          .setPopup(myLocationPopUp)
+          .addTo(map);
       }
     },
   },

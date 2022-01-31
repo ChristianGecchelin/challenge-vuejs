@@ -13,25 +13,18 @@
 </template>
 
 <script>
-import { ref, watch } from "vue";
-import { useMaps, usePlaces } from "@/composables";
+import { ref } from "vue";
+import { usePlaces } from "@/composables";
 export default {
   name: "PxSearchResults",
   setup() {
-    const { map, setPlacesMarker } = useMaps();
     const { places } = usePlaces();
     const selectedPlace = ref(" ");
-    watch(places, (newPlaces) => {
-      selectedPlace.value = "";
-      setPlacesMarker(newPlaces);
-    });
     return {
       places,
       selectedPlace,
       onPlaceClick: (p) => {
         selectedPlace.value = p.id;
-        const [lng, lat] = p.center;
-        map.value.flyTo({ zoom: 14, center: [lng, lat] });
       },
     };
   },
