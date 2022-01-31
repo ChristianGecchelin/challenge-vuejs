@@ -1,6 +1,5 @@
 <template>
   <px-map />
-  <px-restore-location />
 </template>
 
 <script>
