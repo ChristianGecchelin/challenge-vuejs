@@ -51,7 +51,9 @@ export default {
   position: fixed;
   top: 30px;
   left: 30px;
+  border: 2px solid #fff;
   border-radius: 10px;
+  background-color: #f8bbd0;
 }
 .search {
   padding: 5px 10px;

@@ -78,7 +78,43 @@ const store = createStore({
         state.map.markers.push(marker);
       }
     },
+
+    
+setUsersearchForm(state,userplace){
+  if (userplace) {
+
+    searchForm() {
+      const debouncedTime = ref();
+      const debouncedValue = ref();
+      const { searchPlacesForm } = usePlaces();
+      return {
+        debouncedValue,
+        /* 1° creo una prop computada que va a tomar el valor escrito en search,
+       pero va a esperar un tiempo suficiente a que terminemos de escribir en el input para setearlo*/
+        search: computed({
+          get() {
+            return debouncedValue.value;
+          },
+          set(val) {
+            if (debouncedTime.value) clearTimeout(debouncedTime.value);
+    
+            debouncedTime.value = setTimeout(() => {
+              debouncedValue.value = val;
+              searchPlacesForm(val);
+            }, 1000);
+            setTimeout(() => {
+              debouncedValue.value = "";
+            }, 5000);
+          },
+        }),
+      };
+    },
+  }
+}
+
+
   },
+
 
   actions: {
     getInitialLocation(context) {
@@ -125,11 +161,12 @@ const store = createStore({
 
     async createUsername({ commit }, username) {
       commit("setUsername", username);
-    },
-
+    } ,
+    
     async createUsersearch({ commit }, userplace) {
+      
       commit("setUsersearchForm", userplace);
-    },
+    } ,
   },
 });
 export default store;

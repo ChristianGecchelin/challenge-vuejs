@@ -108,27 +108,11 @@ const store = createStore({
       commit("setPlaces", responseApi.data.features);
       return responseApi.data.features;
     },
-    async searchPlacesForm({ state, commit }, query) {
-      if (query.length === 0) {
-        commit("setPlaces", []);
-        return [];
-      }
-      commit("setIsLoadingPlaces");
-      const responseApi = await searchApi(`/${query}.json`, {
-        params: {
-          proximity: state.places.userLocation.join(","),
-        },
-      });
-      commit("setUserplace", responseApi.data.features);
-      return responseApi.data.features;
-    },
-
     async createUsername({ commit }, username) {
       commit("setUsername", username);
     },
-
-    async createUsersearch({ commit }, userplace) {
-      commit("setUsersearchForm", userplace);
+    async createUserlace({ commit }, userplace) {
+      commit("setUserplace", userplace);
     },
   },
 });

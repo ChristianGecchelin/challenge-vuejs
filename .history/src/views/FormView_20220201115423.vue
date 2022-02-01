@@ -34,6 +34,7 @@
           placeholder="Buscar sitio"
           v-model="search"
         />
+        <px-search-results />
       </div>
       <input type="submit" value="Enviar" title="Enviar" class="form-button" />
     </form>
@@ -57,8 +58,7 @@ export default {
   methods: {
     registrar() {
       this.$store.dispatch("createUsername", this.username);
-      /* this.$store.dispatch("createUserplace", this.userplace); */
-      this.$store.dispatch("createUsersearch", this.userplace);
+      this.$store.dispatch("createUserplace", this.userplace);
     },
   },
 
@@ -68,6 +68,8 @@ export default {
     const debouncedValue = ref();
     return {
       debouncedValue,
+      // al disparar registrar debo tomar los valores de los input y setearlos en el store
+
       //obtengo el titulo y lo seteo en el store
       title: computed({
         get() {

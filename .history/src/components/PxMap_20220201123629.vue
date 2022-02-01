@@ -1,6 +1,5 @@
 <template>
   <!-- si userLocation todavia no cargo entonces renderizo el primer div, sino cargo el mapa -->
-
   <div v-show="userLocationReady" class="title-container">
     <h1>{{ titleForm || "Mapa" }}</h1>
   </div>
@@ -10,31 +9,31 @@
       <span>Localizando</span>
     </div>
   </div>
-  <div id="menu" class="radioButtons-container">
-    <div class="radio-container">
-      <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
+  <div id="menu" class="radioButton-container">
+    <div class="radio">
+      <input
+        id="satellite-v9"
+        type="radio"
+        name="rtoggle"
+        value="satellite"
+        checked="checked"
+      />
 
       <label for="satellite-v9">satellite</label>
     </div>
-    <div class="radio-container">
+    <div>
       <input id="light-v10" type="radio" name="rtoggle" value="light" />
       <label for="light-v10">light</label>
     </div>
-    <div class="radio-container">
+    <div>
       <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
       <label for="dark-v10">dark</label>
     </div>
-    <div class="radio-container">
-      <input
-        id="streets-v11"
-        type="radio"
-        name="rtoggle"
-        value="streets"
-        checked="checked"
-      />
+    <div>
+      <input id="streets-v11" type="radio" name="rtoggle" value="streets" />
       <label for="streets-v11">streets</label>
     </div>
-    <div class="radio-container">
+    <div>
       <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
       <label for="outdoors-v11">outdoors</label>
     </div>
@@ -173,7 +172,7 @@ export default {
   height: 100vh;
   z-index: 0;
 }
-.radioButtons-container {
+.radioButton-container {
   z-index: 88;
   width: 100px;
   position: relative;
@@ -182,18 +181,7 @@ export default {
   gap: 10px;
   margin-left: 20px;
   padding: 10px;
-}
-.radio-container {
-  background-color: #fff;
-  padding: 15px 10px;
+  background-color: white;
   border: 2px solid #f8bbd0;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 1.4rem;
-  text-transform: capitalize;
 }
 </style>

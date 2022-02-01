@@ -1,45 +1,51 @@
 <template>
   <!-- si userLocation todavia no cargo entonces renderizo el primer div, sino cargo el mapa -->
+  <section>
+    <div v-show="userLocationReady" class="title-container">
+      <h1>{{ titleForm || "Mapa" }}</h1>
+    </div>
+    <div v-show="!userLocationReady" class="loading-map">
+      <div class="container-loading">
+        <h3>Espere Por Favor...</h3>
+        <span>Localizando</span>
+      </div>
+    </div>
+    <div id="menu" class="radioButtons-container">
+      <div class="radio-container">
+        <input
+          id="satellite-v9"
+          type="radio"
+          name="rtoggle"
+          value="satellite"
+        />
 
-  <div v-show="userLocationReady" class="title-container">
-    <h1>{{ titleForm || "Mapa" }}</h1>
-  </div>
-  <div v-show="!userLocationReady" class="loading-map">
-    <div class="container-loading">
-      <h3>Espere Por Favor...</h3>
-      <span>Localizando</span>
+        <label for="satellite-v9">satellite</label>
+      </div>
+      <div class="radio-container">
+        <input id="light-v10" type="radio" name="rtoggle" value="light" />
+        <label for="light-v10">light</label>
+      </div>
+      <div class="radio-container">
+        <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
+        <label for="dark-v10">dark</label>
+      </div>
+      <div class="radio-container">
+        <input
+          id="streets-v11"
+          type="radio"
+          name="rtoggle"
+          value="streets"
+          checked="checked"
+        />
+        <label for="streets-v11">streets</label>
+      </div>
+      <div class="radio-container">
+        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
+        <label for="outdoors-v11">outdoors</label>
+      </div>
     </div>
-  </div>
-  <div id="menu" class="radioButtons-container">
-    <div class="radio-container">
-      <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
-
-      <label for="satellite-v9">satellite</label>
-    </div>
-    <div class="radio-container">
-      <input id="light-v10" type="radio" name="rtoggle" value="light" />
-      <label for="light-v10">light</label>
-    </div>
-    <div class="radio-container">
-      <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
-      <label for="dark-v10">dark</label>
-    </div>
-    <div class="radio-container">
-      <input
-        id="streets-v11"
-        type="radio"
-        name="rtoggle"
-        value="streets"
-        checked="checked"
-      />
-      <label for="streets-v11">streets</label>
-    </div>
-    <div class="radio-container">
-      <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
-      <label for="outdoors-v11">outdoors</label>
-    </div>
-  </div>
-  <div v-show="userLocationReady" class="map-container" id="map"></div>
+    <div v-show="userLocationReady" class="map-container" id="map"></div>
+  </section>
 </template>
 <script>
 import { onMounted, watch } from "vue";

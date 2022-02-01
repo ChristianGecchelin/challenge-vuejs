@@ -7,7 +7,7 @@
       :class="{ selected: p.id === selectedPlace }"
     >
       <h3>{{ p.text }}</h3>
-      <button>Ir</button>
+      <button>Select</button>
     </li>
   </ul>
 </template>
@@ -52,9 +52,6 @@ li {
   margin-top: 10px;
   padding: 10px;
   color: #fff;
-  border: 2px solid #fff;
-  background-color: #f8bbd0;
-  border-radius: 10px;
 }
 h3 {
   font-size: 1.4rem;
@@ -65,7 +62,7 @@ button {
   border: 2px solid #fff;
   padding: 5px 15px;
   background-color: #f8bbd0;
-  border-radius: 10px;
+  border-radius: 5px;
   color: #fff;
 }
 .selected {

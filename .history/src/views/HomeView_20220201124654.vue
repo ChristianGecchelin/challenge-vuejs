@@ -28,6 +28,5 @@ section {
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  gap: 15%;
 }
 </style>

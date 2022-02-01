@@ -1,6 +1,5 @@
 <template>
   <!-- si userLocation todavia no cargo entonces renderizo el primer div, sino cargo el mapa -->
-
   <div v-show="userLocationReady" class="title-container">
     <h1>{{ titleForm || "Mapa" }}</h1>
   </div>
@@ -21,17 +20,17 @@
       <label for="light-v10">light</label>
     </div>
     <div class="radio-container">
-      <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
+      <input
+        id="dark-v10"
+        type="radio"
+        name="rtoggle"
+        value="dark"
+        checked="checked"
+      />
       <label for="dark-v10">dark</label>
     </div>
     <div class="radio-container">
-      <input
-        id="streets-v11"
-        type="radio"
-        name="rtoggle"
-        value="streets"
-        checked="checked"
-      />
+      <input id="streets-v11" type="radio" name="rtoggle" value="streets" />
       <label for="streets-v11">streets</label>
     </div>
     <div class="radio-container">
