@@ -171,9 +171,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fff;
-  font-size: 2rem;
-  line-height: 2.5rem;
 }
 .map-container {
   position: absolute;
