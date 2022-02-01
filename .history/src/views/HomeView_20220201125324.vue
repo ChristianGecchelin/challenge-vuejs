@@ -25,9 +25,8 @@ export default {
 section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   height: 100vh;
   width: 100vw;
-  gap: 15%;
 }
 </style>

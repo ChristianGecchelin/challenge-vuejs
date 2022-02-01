@@ -125,11 +125,10 @@ const store = createStore({
 
     async createUsername({ commit }, username) {
       commit("setUsername", username);
-    },
-
-    async createUsersearch({ commit }, userplace) {
-      commit("setUsersearchForm", userplace);
-    },
+    } /* 
+    async createUserplace({ commit }, userplace) {
+      commit("setUserplace", userplace);
+    }, */,
   },
 });
 export default store;

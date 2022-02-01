@@ -1,6 +1,5 @@
 <template>
   <!-- si userLocation todavia no cargo entonces renderizo el primer div, sino cargo el mapa -->
-
   <div v-show="userLocationReady" class="title-container">
     <h1>{{ titleForm || "Mapa" }}</h1>
   </div>

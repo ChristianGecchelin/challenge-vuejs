@@ -34,6 +34,7 @@
           placeholder="Buscar sitio"
           v-model="search"
         />
+        <px-search-results />
       </div>
       <input type="submit" value="Enviar" title="Enviar" class="form-button" />
     </form>
@@ -42,7 +43,7 @@
 <script>
 import { ref, /* watch, */ computed } from "vue";
 import PxButtonViews from "@/components/PxButtonViews.vue";
-import { useTitle } from "@/composables";
+import { useTitle,usePlaces } from "@/composables";
 export default {
   components: { PxButtonViews },
   name: "FormView",
@@ -57,8 +58,7 @@ export default {
   methods: {
     registrar() {
       this.$store.dispatch("createUsername", this.username);
-      /* this.$store.dispatch("createUserplace", this.userplace); */
-      this.$store.dispatch("createUsersearch", this.userplace);
+      this.$store.dispatch("createUserplace", this.userplace);
     },
   },
 
@@ -67,6 +67,39 @@ export default {
     const debouncedTime = ref();
     const debouncedValue = ref();
     return {
+    const { searchPlaces } = usePlaces();
+    const debouncedTime = ref();
+    const debouncedValue = ref("");
+    return {
+      debouncedValue,
+      /* 1° creo una prop computada que va a tomar el valor escrito en search,
+       pero va a esperar un tiempo suficiente a que terminemos de escribir en el input para setearlo*/
+      search: computed({
+        get() {
+          return debouncedValue.value;
+        },
+        set(val) {
+          if (debouncedTime.value) clearTimeout(debouncedTime.value);
+
+          debouncedTime.value = setTimeout(() => {
+            debouncedValue.value = val;
+            searchPlaces(val);
+          }, 1000);
+          setTimeout(() => {
+            debouncedValue.value = "";
+          }, 5000);
+        },
+      }),
+    };
+
+
+
+
+
+
+
+
+
       debouncedValue,
       //obtengo el titulo y lo seteo en el store
       title: computed({

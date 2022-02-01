@@ -5,10 +5,7 @@ import mapboxgl from "mapbox-gl";
 const store = createStore({
   state: {
     // nombre del usuario seteado en el form
-    users: {
-      usernames: [],
-      userplaces: [],
-    },
+    users: [],
     //titulo de la página que seteo desde el form
     title: {
       name: "",
@@ -56,13 +53,9 @@ const store = createStore({
     setTitle(state, title) {
       state.title.name = title;
     },
-    setUsername(state, username) {
-      let name = state.users.usernames.push(username);
-      state.users.usernames = name;
-    },
-    setUserplace(state, userplace) {
-      let place = state.users.userplaces.push(userplace);
-      state.users.userplaces = place;
+    setUser(state, user) {
+      let users = state.users.push(user);
+      state.users = users;
     },
     setPlacesMarker(state, places) {
       //creo nuevos marcadores
@@ -108,27 +101,8 @@ const store = createStore({
       commit("setPlaces", responseApi.data.features);
       return responseApi.data.features;
     },
-    async searchPlacesForm({ state, commit }, query) {
-      if (query.length === 0) {
-        commit("setPlaces", []);
-        return [];
-      }
-      commit("setIsLoadingPlaces");
-      const responseApi = await searchApi(`/${query}.json`, {
-        params: {
-          proximity: state.places.userLocation.join(","),
-        },
-      });
-      commit("setUserplace", responseApi.data.features);
-      return responseApi.data.features;
-    },
-
-    async createUsername({ commit }, username) {
-      commit("setUsername", username);
-    },
-
-    async createUsersearch({ commit }, userplace) {
-      commit("setUsersearchForm", userplace);
+    async createUser({ commit }, user) {
+      commit("setUser", user);
     },
   },
 });

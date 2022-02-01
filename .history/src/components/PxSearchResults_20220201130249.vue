@@ -54,7 +54,6 @@ li {
   color: #fff;
   border: 2px solid #fff;
   background-color: #f8bbd0;
-  border-radius: 10px;
 }
 h3 {
   font-size: 1.4rem;

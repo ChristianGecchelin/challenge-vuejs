@@ -51,15 +51,10 @@ export default {
   position: fixed;
   top: 30px;
   left: 30px;
-  border-radius: 10px;
+  background-color: white;
 }
 .search {
   padding: 5px 10px;
   width: 100%;
-  outline: none;
-  border: 2px solid #fff;
-  background-color: #f8bbd0;
-  text-align: center;
-  border-radius: 10px;
 }
 </style>

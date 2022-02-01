@@ -42,7 +42,7 @@
 <script>
 import { ref, /* watch, */ computed } from "vue";
 import PxButtonViews from "@/components/PxButtonViews.vue";
-import { useTitle } from "@/composables";
+import { useTitle, usePlaces } from "@/composables";
 export default {
   components: { PxButtonViews },
   name: "FormView",
