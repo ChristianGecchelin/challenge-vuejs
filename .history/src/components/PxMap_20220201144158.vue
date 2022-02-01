@@ -22,17 +22,17 @@
       <label for="light-v10">light</label>
     </div>
     <div class="radio-container">
-      <input
-        id="dark-v10"
-        type="radio"
-        name="rtoggle"
-        value="dark"
-        checked="checked"
-      />
+      <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
       <label for="dark-v10">dark</label>
     </div>
     <div class="radio-container">
-      <input id="streets-v11" type="radio" name="rtoggle" value="streets" />
+      <input
+        id="streets-v11"
+        type="radio"
+        name="rtoggle"
+        value="streets"
+        checked="checked"
+      />
       <label for="streets-v11">streets</label>
     </div>
     <div class="radio-container">
@@ -67,7 +67,7 @@ export default {
       await Promise.resolve();
       const map = new mapboxgl.Map({
         container: "map", // container ID
-        style: "mapbox://styles/mapbox/dark-v10", // style URL
+        style: "mapbox://styles/mapbox/dark-v11", // style URL
         center: userLocation.value, // starting position [lng, lat]
         zoom: 12, // starting zoom
       });

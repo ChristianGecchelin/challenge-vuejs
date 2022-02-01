@@ -22,17 +22,17 @@
       <label for="light-v10">light</label>
     </div>
     <div class="radio-container">
-      <input
-        id="dark-v10"
-        type="radio"
-        name="rtoggle"
-        value="dark"
-        checked="checked"
-      />
+      <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
       <label for="dark-v10">dark</label>
     </div>
     <div class="radio-container">
-      <input id="streets-v11" type="radio" name="rtoggle" value="streets" />
+      <input
+        id="streets-v11"
+        type="radio"
+        name="rtoggle"
+        value="streets"
+        checked="checked"
+      />
       <label for="streets-v11">streets</label>
     </div>
     <div class="radio-container">
