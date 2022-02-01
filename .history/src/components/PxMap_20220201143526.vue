@@ -156,7 +156,7 @@ export default {
   border-radius: 10px;
 }
 .title-container h1 {
-  color: #880e4f;
+  color: #c48b9f;
 }
 .loading-map {
   position: relative;

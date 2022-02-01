@@ -63,7 +63,7 @@ h3 {
 }
 button {
   outline: none;
-  border: 2px solid #880e4f;
+  border: 2px solid #fff;
   padding: 5px 15px;
   background-color: #f8bbd0;
   border-radius: 10px;
@@ -71,7 +71,7 @@ button {
 }
 .selected {
   background-color: #fff;
-  border: 2px solid #f8bbd0;
+  border: 2px solid #880e4f;
   color: #f8bbd0;
 }
 </style>

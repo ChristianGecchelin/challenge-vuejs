@@ -154,7 +154,7 @@ export default {
   background-color: #f8bbd0;
   border-radius: 10px;
   font-size: 1.6rem;
-  color: #880e4f;
+  color: #fff;
   cursor: pointer;
 }
 .form-section .container-form .form-button:hover {

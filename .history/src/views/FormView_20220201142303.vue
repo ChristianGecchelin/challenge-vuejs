@@ -56,15 +56,12 @@ export default {
   },
   methods: {
     registrar() {
-      /* cuando presiono el boton deberia setear el lugar y el nombre del usuario, pero el lugar no pude conectarlo con la
-    api para recibir un resultado como hace el input del home */
       this.$store.dispatch("createUsername", this.username);
       this.$store.dispatch("createUserplace", this.userplace);
     },
   },
 
   setup() {
-    /* elegí usar este metodo para el input que setea el title del home */
     const { setTitle } = useTitle();
     const debouncedTime = ref();
     const debouncedValue = ref();
@@ -154,7 +151,7 @@ export default {
   background-color: #f8bbd0;
   border-radius: 10px;
   font-size: 1.6rem;
-  color: #880e4f;
+  color: #fff;
   cursor: pointer;
 }
 .form-section .container-form .form-button:hover {

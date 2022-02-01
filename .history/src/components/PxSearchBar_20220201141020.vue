@@ -33,8 +33,7 @@ export default {
         },
         set(val) {
           if (debouncedTime.value) clearTimeout(debouncedTime.value);
-          /* para que la api no reciba tantas request (hay un limite como usuario gratuito)
-        lo que hice fue setear un timeout que se reinicia cuando sigo escribiendo */
+
           debouncedTime.value = setTimeout(() => {
             debouncedValue.value = val;
             searchPlaces(val);
@@ -64,6 +63,5 @@ export default {
   background-color: #f8bbd0;
   text-align: center;
   border-radius: 10px;
-  color: #880e4f;
 }
 </style>

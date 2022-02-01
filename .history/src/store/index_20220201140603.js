@@ -33,7 +33,6 @@ const store = createStore({
     userLocationReady(state) {
       return !!state.places.userLocation;
     },
-    /* nos indica si el mapa esta cargado */
     mapReady(state) {
       return !!state.map.mapInstance;
     },
@@ -109,7 +108,6 @@ const store = createStore({
       commit("setPlaces", responseApi.data.features);
       return responseApi.data.features;
     },
-    /* esta deberia haber sido la funcion que se ejecute en Form para cargar nuevos places de los usuarios */
     async searchPlacesForm({ state, commit }, query) {
       if (query.length === 0) {
         commit("setPlaces", []);

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-/* nos muestra los resultados, y si presionamos el boton nos redirige a ese sitio, ademas de marcarlos en el mapa con  un popup */
+/* nos muestra los resultados */
 import { ref, watch } from "vue";
 import { useMaps, usePlaces } from "@/composables";
 export default {
@@ -52,7 +52,7 @@ li {
   align-items: center;
   margin-top: 10px;
   padding: 10px;
-  color: #880e4f;
+  color: #fff;
   border: 2px solid #fff;
   background-color: #f8bbd0;
   border-radius: 10px;
@@ -63,11 +63,11 @@ h3 {
 }
 button {
   outline: none;
-  border: 2px solid #880e4f;
+  border: 2px solid #fff;
   padding: 5px 15px;
   background-color: #f8bbd0;
   border-radius: 10px;
-  color: #880e4f;
+  color: #fff;
 }
 .selected {
   background-color: #fff;

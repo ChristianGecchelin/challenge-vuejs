@@ -63,11 +63,11 @@ h3 {
 }
 button {
   outline: none;
-  border: 2px solid #880e4f;
+  border: 2px solid #fff;
   padding: 5px 15px;
   background-color: #f8bbd0;
   border-radius: 10px;
-  color: #880e4f;
+  color: #fff;
 }
 .selected {
   background-color: #fff;
